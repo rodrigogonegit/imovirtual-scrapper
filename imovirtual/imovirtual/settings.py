@@ -17,10 +17,10 @@ NEWSPIDER_MODULE = 'imovirtual.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'imovirtual (+http://www.yourdomain.com)'
-USER_AGENT = 'Mozilla'
-
+# USER_AGENT = 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (Linux; U; Android 2.2) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1'
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 1
@@ -65,9 +65,12 @@ CONCURRENT_REQUESTS = 1
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'imovirtual.pipelines.ImovirtualPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'imovirtual.pipelines.RemoveKeysWithNullValuesPipeline': 100,
+   'imovirtual.pipelines.HouseListingPipeline': 200,
+   'imovirtual.pipelines.ExtractIntegersPipeline': 300,
+   'imovirtual.pipelines.ListingDescriptionPipeline': 400,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
