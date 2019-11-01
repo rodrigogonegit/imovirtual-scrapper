@@ -74,8 +74,18 @@ class ImoSpider(scrapy.Spider):
 
         l.add_xpath('listing_description', '//*[@id="root"]/article/div[3]/div[1]/section[2]/div[1]')
         l.add_xpath('house_characteristics', '//*[@id="root"]/article/div[3]/div[1]/section[3]/div/ul//text()')
-        # print("-------------")
-        # print(str(l))
+
+        # Get Image urls
+        imgs_div = response.xpath('//*[@id="root"]/article/section[2]/div[1]/div/div[2]/div/div/div')[0]
+        img_urls = []
+
+        for i in imgs_div.xpath('//img[@width=114]'):
+            img_urls.append(i.attrib['src'])
+
+        print('------------1')
+        print(img_urls)
+        l.add_value('img_urls', img_urls)
+
         return l.load_item()
 
     def find_matching_field_value(self, imovirtual_label_name: str, li_list: scrapy.Selector) -> str:

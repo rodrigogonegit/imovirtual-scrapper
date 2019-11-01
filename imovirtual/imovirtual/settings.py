@@ -33,6 +33,8 @@ CONCURRENT_REQUESTS = 1
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
 
+DOWNLOAD_TIMEOUT = 10
+
 # Disable cookies (enabled by default)
 #COOKIES_ENABLED = False
 
@@ -66,7 +68,7 @@ CONCURRENT_REQUESTS = 1
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'imovirtual.pipelines.RemoveKeysWithNullValuesPipeline': 100,
+   # 'imovirtual.pipelines.RemoveKeysWithNullValuesPipeline': 100,
    'imovirtual.pipelines.HouseListingPipeline': 200,
    'imovirtual.pipelines.ExtractIntegersPipeline': 300,
    'imovirtual.pipelines.ListingDescriptionPipeline': 400,

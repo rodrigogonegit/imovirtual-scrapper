@@ -94,6 +94,4 @@ class ListingDescriptionPipeline(object):
         if 'listing_decription' in item:
             item['listing_description'] = remove_tags(item['listing_description'])
 
-        print('AFTER PIPELINE')
-        print(item)
         return item
