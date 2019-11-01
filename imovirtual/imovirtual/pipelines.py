@@ -74,7 +74,7 @@ class ExtractIntegersPipeline(object):
         if key in item and item[key] is not None:
             item[key] = ''.join(item[key])
             # integers = [int(s) for s in item[key].split() if s.isdigit()]
-            integers = re.findall(r'\d+', item[key].replace(' ', ''))
+            integers = re.findall(r'[-+]?\d*,\d+|\d+', item[key].replace(' ', ''))
 
             if len(integers) == 1:
                 # return integers[0]
@@ -91,7 +91,7 @@ class ExtractIntegersPipeline(object):
 class ListingDescriptionPipeline(object):
 
     def process_item(self, item, spider):
-        if 'listing_decription' in item:
+        if 'listing_description' in item:
             item['listing_description'] = remove_tags(item['listing_description'])
 
         return item

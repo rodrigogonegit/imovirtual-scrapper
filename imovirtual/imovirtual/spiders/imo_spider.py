@@ -82,8 +82,6 @@ class ImoSpider(scrapy.Spider):
         for i in imgs_div.xpath('//img[@width=114]'):
             img_urls.append(i.attrib['src'])
 
-        print('------------1')
-        print(img_urls)
         l.add_value('img_urls', img_urls)
 
         return l.load_item()
