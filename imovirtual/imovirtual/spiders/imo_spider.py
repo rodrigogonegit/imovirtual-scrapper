@@ -15,8 +15,8 @@ class ImoSpider(scrapy.Spider):
         self.logger.info("Hit start_requests")
         urls = [
             'https://www.imovirtual.com/comprar/apartamento/',
-            # 'https://www.imovirtual.com/arrendar/apartamento/',
-            # 'https://www.imovirtual.com/ferias/apartamento/'
+            'https://www.imovirtual.com/arrendar/apartamento/',
+            'https://www.imovirtual.com/ferias/apartamento/'
         ]
 
         for url in urls:

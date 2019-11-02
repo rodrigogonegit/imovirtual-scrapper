@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86b60027-b443-4a63-9a56-43d278e4a46b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imovirtual/imovirtual/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/imovirtual/imovirtual/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imovirtual/imovirtual/scrapped_items.xml" beforeDir="false" afterPath="$PROJECT_DIR$/imovirtual/imovirtual/scrapped_items.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imovirtual/imovirtual/scrapped_items.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/imovirtual/imovirtual/spiders/imo_spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/imovirtual/imovirtual/spiders/imo_spider.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -120,7 +118,7 @@
       <workItem from="1572541519983" duration="491000" />
       <workItem from="1572568995139" duration="749000" />
       <workItem from="1572572197739" duration="5115000" />
-      <workItem from="1572724618044" duration="1865000" />
+      <workItem from="1572724618044" duration="1955000" />
     </task>
     <servers />
   </component>
