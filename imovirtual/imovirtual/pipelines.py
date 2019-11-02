@@ -9,6 +9,7 @@
 from w3lib.html import remove_tags
 import re
 
+
 class RemoveKeysWithNullValuesPipeline(object):
     """
 
@@ -28,22 +29,38 @@ class HouseListingPipeline(object):
     """
         Determines if the house listing is 'Comprar' | 'Arrendar' | 'Ferias'
     """
+    __spider = None
+
+    def open_spider(self, spider):
+        self.__spider = spider
+
     def process_item(self, item, spider):
-        if 'listing_type' not in item:
+        if 'arrendar' in item['listing_type']:
+            item['listing_type'] = 'rent'
+
+        elif 'comprar' in item['listing_type']:
             item['listing_type'] = 'buy'
 
-        else:
-            item['listing_type'] = ''.join(item['listing_type'])
+        elif 'férias' in item['listing_type']:
+            item['listing_type'] = 'vacation'
 
-            item['listing_type'] = item['listing_type'].lower().replace(' ', '')
-
-            if item['listing_type'] == 'mês':
-                item['listing_type'] = 'rent'
-
-            elif item['listing_type'] == 'semana':
-                item['listing_type'] = 'vacations'
+        # if 'listing_type' not in item:
+        #     item['listing_type'] = 'NOT_DEFINED'
+        #
+        # else:
+        #     item['listing_type'] = ''.join(item['listing_type']).replace('/', '').replace(' ', '')
+        #
+        #     if item['listing_type'] == 'mês':
+        #         item['listing_type'] = 'rent'
+        #
+        #     elif item['listing_type'] == 'semana':
+        #         item['listing_type'] = 'vacations'
+        #
+        #     else:
+        #         self.__spider.logger.error('Could not determine listing type. Did not change field.')
 
         return item
+
 
 class ExtractIntegersPipeline(object):
     """

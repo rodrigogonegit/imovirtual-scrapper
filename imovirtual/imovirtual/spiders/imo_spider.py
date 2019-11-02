@@ -15,6 +15,8 @@ class ImoSpider(scrapy.Spider):
         self.logger.info("Hit start_requests")
         urls = [
             'https://www.imovirtual.com/comprar/apartamento/',
+            # 'https://www.imovirtual.com/arrendar/apartamento/',
+            # 'https://www.imovirtual.com/ferias/apartamento/'
         ]
 
         for url in urls:
@@ -58,7 +60,10 @@ class ImoSpider(scrapy.Spider):
 
         l = ItemLoader(item=HouseListing(), response=response)
         l.add_value('listing_url', response.url)
-        l.add_css('listing_type', '#root > article > header > div.css-s3teq > div.css-13ywf6 > div.css-1vr19r7 > small::text')
+
+        # #root > article > header > div.css-s3teq > div.css-13ywf6 > div.css-1vr19r7
+        # l.add_css('listing_type', '#root > article > header > div.css-s3teq > div.css-13ywf6 > div.css-1vr19r7 > small::text')
+        l.add_xpath('listing_type', '//*[@id="root"]/article/section[1]/div[1]/ul/li[2]/a')
         l.add_css('title', '#root > article > header > div.css-1jiadof > div > div > h1::text')
         l.add_css('house_location', '#root > article > header > div.css-1jiadof > div > div > div > a::text')
         l.add_css('house_cost', '#root > article > header > div.css-s3teq > div.css-13ywf6 > div.css-1vr19r7::text')
